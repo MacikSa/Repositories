@@ -1,20 +1,125 @@
-// Klasy.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <limits>
 
+using namespace std;
+
+class Kalkulator
+{
+public:
+	void Dodawanie(float a, float b)
+	{
+		cout << a + b << endl;
+	}
+	void Odejmowanie(float a, float b)
+	{
+		cout << a - b << endl;
+	}
+	void Mnozenie(float a, float b)
+	{
+		cout << a * b << endl;
+	}
+	void Dzielenie(float a, float b)
+	{
+		cout << a / b << endl;
+	}
+};
 int main()
 {
-    std::cout << "Hello World!\n";
+	unsigned int choise;
+	float a, b;
+	Kalkulator calculator;
+	do {
+		cout << "1. Dodawanie" << endl;
+		cout << "2. Odejmowanie" << endl;
+		cout << "3. Mnozenie" << endl;
+		cout << "4. Dzielenie" << endl;
+		cout << "5. wyjscie z programu" << endl;
+		cin >> choise;
+
+		if (cin.fail())
+		{
+			cout << "Blad! Podano niepoprawna liczbe!" << endl;
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		}
+		else
+		{
+			cout << "Wczytano liczbe: " << choise << endl;
+		}
+
+		switch (choise)
+		{
+		case 1:
+			cout << "Podaj dwie wartosci:" << endl;
+			cin >> a >> b;
+			if (cin.fail())
+			{
+				cout << "Blad! Podano niepoprawna liczbe!" << endl;
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			}
+			else
+			{
+				calculator.Dodawanie(a, b);
+			}
+			break;
+		case 2:
+			cout << "Podaj dwie wartosci:" << endl;
+			cin >> a >> b;
+			if (cin.fail())
+			{
+				cout << "Blad! Podano niepoprawna liczbe!" << endl;
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			}
+			else
+			{
+				calculator.Odejmowanie(a, b);
+			}
+			break;
+		case 3:
+			cout << "Podaj dwie wartosci:" << endl;
+			cin >> a >> b;
+			if (cin.fail())
+			{
+				cout << "Blad! Podano niepoprawna liczbe!" << endl;
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			}
+			else
+			{
+				calculator.Mnozenie(a, b);
+			}
+			break;
+		case 4:
+			cout << "Podaj dwie wartosci:" << endl;
+			cin >> a >> b;
+			if (cin.fail())
+			{
+				cout << "Blad! Podano niepoprawna liczbe!" << endl;
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			}
+			else
+			{
+				if (b == 0)
+				{
+					cout << "Dzielnik musi byc rozny od 0!!!" << endl;
+				}
+				else
+				{
+					calculator.Dzielenie(a, b);
+				}
+			}
+			break;
+		case 5:
+			cout << "Wyjscie z programu!!!" << endl;
+			break;
+		default:
+			cout << "Niepoprawne dane, wpisz wartosci jeszcze raz!" << endl;
+		}
+
+	} while (choise != 5);
+
+	return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
